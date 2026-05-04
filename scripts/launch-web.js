@@ -120,8 +120,10 @@ async function start() {
     });
   });
 
-  server.listen(webPort, "127.0.0.1", () => {
-    console.log(`[web] UI ready: http://127.0.0.1:${webPort}/?token=${token}`);
+  const host = process.env.HOST || "0.0.0.0";
+  server.listen(webPort, host, () => {
+    const addr = host === "0.0.0.0" ? "localhost" : host;
+    console.log(`[web] UI ready: http://${addr}:${webPort}/?token=${token}`);
     console.log(`[web] backend: http://127.0.0.1:${backendPort}`);
   });
 
