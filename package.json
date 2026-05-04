@@ -42,7 +42,10 @@
     "build:server": "node scripts/build-server.mjs",
     "lint": "eslint desktop/src/ server/",
     "test:watch": "vitest",
-    "postinstall": "node scripts/patch-pi-sdk.cjs"
+    "postinstall": "node scripts/patch-pi-sdk.cjs",
+    "deploy:cli": "bash scripts/deploy-cli.sh",
+    "web": "node scripts/launch-web.js",
+    "web:start": "npm run build:renderer && node scripts/launch-web.js"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "^6.5.0",
@@ -67,8 +70,8 @@
     "exceljs": "^4.4.0",
     "extract-zip": "^2.0.1",
     "hono": "^4.12.9",
-    "jsdom": "^29.0.2",
     "js-yaml": "^4.1.0",
+    "jsdom": "^29.0.2",
     "katex": "^0.16.39",
     "mammoth": "^1.11.0",
     "markdown-it": "^14.1.1",
@@ -104,7 +107,7 @@
     "pngjs": "^5.0.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.2",
-    "vite": "^7.3.1",
+    "vite": "^7.3.2",
     "vitest": "^4.0.18"
   },
   "build": {
